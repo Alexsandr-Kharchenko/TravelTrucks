@@ -23,8 +23,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <SvgSprite />
-        <Header />
-        <main>{children}</main>
+
+        {/* Layout wrapper */}
+        <div className="app">
+          <Header />
+
+          <main className="main">{children}</main>
+        </div>
       </body>
     </html>
   );

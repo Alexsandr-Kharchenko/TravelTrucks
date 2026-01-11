@@ -1,7 +1,6 @@
 /* ================= CONTAINER ================= */
 .container {
   width: 100%;
-  margin: 48px auto 0;
 }
 
 @media (max-width: 1440px) {
@@ -26,6 +25,9 @@
   width: 360px;
   background: var(--white);
   border-radius: 10px;
+  position: sticky;
+  top: 96px; /* якщо хедер fixed */
+  align-self: start;
 }
 
 /* Blocks */
@@ -50,7 +52,6 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 120%;
-  margin-bottom: 48px;
 }
 
 /* Input */
@@ -59,10 +60,17 @@
   height: 48px;
   padding: 0 16px;
   border-radius: 10px;
-  border: 1px solid #dadde1;
+  border: 1px solid #dadde1; /* сірий колір по замовчуванню */
   font-size: 16px;
+  background: #f9f9f9;
+  transition: all 0.2s ease;
 }
 
+.input:focus {
+  outline: none;
+  background: #ffffff;
+  border: 1px solid #e44848;
+}
 /* Grid */
 .grid {
   display: grid;
@@ -103,7 +111,7 @@
 
 /* Hover */
 .option:hover {
-  border-color: var(--main);
+  border-color: var(--button-hover);
   color: var(--main);
 }
 
@@ -121,7 +129,7 @@
   width: 166px;
   height: 56px;
   border-radius: 200px;
-  background: var(--main);
+  background: var(--button);
   color: var(--white);
   border: none;
   font-weight: 500;
@@ -134,4 +142,12 @@
   color: #101828;
   border: 1px solid #e44848; /* залишаємо обводку червоного кольору */
   outline: none;
+}
+
+.divider {
+  margin-top: 24px;
+  width: 100%;
+  height: 1px;
+  background-color: #e4e7ec;
+  margin: 24px 0;
 }

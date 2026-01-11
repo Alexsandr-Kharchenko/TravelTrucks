@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+TravelTrucks – Camper Rental Service TravelTrucks is a modern web application
+designed for camper rentals. This platform allows travelers to explore a wide
+range of campers, filter them by specific amenities, view detailed
+specifications and user reviews, and book their next adventure online.
 
-## Getting Started
+Main Features Home Page: Features a hero banner with a clear Call-to-Action
+(CTA) "View Now" leading to the catalog.
 
-First, run the development server:
+Camper Catalog: A comprehensive list of available vehicles with "Load More"
+pagination.
 
-```bash
+Advanced Backend Filtering:
+
+Search by Location.
+
+Filter by Vehicle Type (Panel truck, Fully Integrated, Alcove).
+
+Filter by Amenities (AC, Kitchen, TV, Bathroom, etc.).
+
+Favorites System: Users can save campers to a favorites list. The state is
+persisted using LocalStorage, so your choices remain after a page refresh.
+
+Detailed Camper Page:
+
+Dynamic image gallery.
+
+Tabbed interface: Features (specs) and Reviews (with a 5-star rating system).
+
+Detailed specs: Transmission, Engine, Tank, Consumption, and more.
+
+Booking Form: Integrated booking system with form validation and success
+notifications (Toasts).
+
+🛠 Tech Stack Framework: Next.js 14+ (App Router)
+
+Language: TypeScript
+
+State Management: Zustand (with persist middleware)
+
+Data Fetching: Axios
+
+Styling: CSS Modules
+
+UI Components: React Icons / SVG Sprites
+
+Backend API: MockAPI
+
+Project Structure Plaintext
+
+/app # Next.js App Router (pages & layouts) /components # Reusable UI components
+(Card, Filters, BookingForm, Loader) /store # Zustand store for global state
+management /services # Axios instance and API request functions /types #
+TypeScript interfaces and shared types /styles # Global styles and CSS variables
+/assets # Static assets (icons, images) ⚙️ Installation & Setup Clone the
+repository:
+
+Bash
+
+git clone https://github.com/your-username/travel-trucks.git cd travel-trucks
+Install dependencies:
+
+Bash
+
+npm install
+
+# or
+
+yarn install Run the development server:
+
+Bash
+
 npm run dev
+
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+yarn dev View the app: Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Implementation Details Backend Sync: Filtering is performed strictly on the
+server side via query parameters to ensure performance.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Clean UI: Prices are formatted to display with decimals (e.g., 8000.00) as per
+the requirements.
 
-## Learn More
+State Reset: When new filters are applied, the previous search results are
+cleared to ensure data accuracy.
 
-To learn more about Next.js, take a look at the following resources:
+Performance: Implemented next/font for optimized typography and responsive
+layouts for desktop users.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+UX: Loading states (loaders) are provided for all asynchronous operations.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Author [Your Name] This project was developed as a technical assessment for the
+TravelTrucks frontend position.
 
-## Deploy on Vercel
+Links Live Demo: https://your-project-link.vercel.app
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub Repository: https://github.com/your-username/travel-trucks

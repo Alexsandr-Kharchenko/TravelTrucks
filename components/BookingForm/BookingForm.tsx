@@ -6,9 +6,12 @@ import styles from './BookingForm.module.css';
 export default function BookingForm() {
   const [success, setSuccess] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    e.currentTarget.reset(); // очищаємо форму
     setSuccess(true);
+
     setTimeout(() => setSuccess(false), 3000);
   };
 
@@ -18,15 +21,24 @@ export default function BookingForm() {
         <h3>Book your campervan now</h3>
         <p>Stay connected! We are always ready to help you.</p>
 
-        <input type="text" placeholder="Name*" required />
-        <input type="email" placeholder="Email*" required />
-        <input type="date" placeholder="Booking date*" required />
-        <textarea placeholder="Comment" rows={4} />
+        <input type="text" placeholder="Name*" required aria-label="Name" />
 
-        <button type="submit">Send</button>
+        <input type="email" placeholder="Email*" required aria-label="Email" />
+
+        <input type="date" required aria-label="Booking date" />
+
+        <textarea placeholder="Comment" rows={4} aria-label="Comment" />
+
+        <button type="submit" disabled={success}>
+          Send
+        </button>
       </form>
 
-      {success && <div className={styles.toast}>Booking successful 🎉</div>}
+      {success && (
+        <div className={styles.toast} role="status" aria-live="polite">
+          Booking successful! Our manager will contact you shortly. 🎉
+        </div>
+      )}
     </>
   );
 }

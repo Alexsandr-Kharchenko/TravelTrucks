@@ -91,21 +91,19 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-
-  padding: 8px 0; /* можна трохи зменшити */
+  padding: 8px 0;
 }
 
 .detailsList li:last-child {
   border-bottom: none;
 }
 
-.detailsList span:first-child {
-  font-size: 16px;
-  color: #475467;
-}
-
-.detailsList span:last-child {
-  font-size: 16px;
+/* Один стиль для всіх span у detailsList */
+.detailsList span {
+  font-family: var(--font-family);
   font-weight: 500;
-  color: #101828;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: left; /* вирівнювання по лівому краю */
+  color: var(--main);
 }

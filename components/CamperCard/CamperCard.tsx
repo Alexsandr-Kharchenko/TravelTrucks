@@ -9,8 +9,15 @@ import { SvgSprite } from '@/components/SvgSprite/SvgSprite';
 import styles from './CamperCard.module.css';
 
 export default function CamperGrid() {
-  const { campers, total, isLoading, loadCampers, favorites, toggleFavorite } =
-    useCamperStore();
+  const {
+    campers,
+    total,
+    isLoading,
+    loadCampers,
+    favorites,
+    toggleFavorite,
+    error,
+  } = useCamperStore();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const prevCountRef = useRef(0);
@@ -39,12 +46,15 @@ export default function CamperGrid() {
     <>
       <SvgSprite />
 
-      {/* ✅ Обгортка контейнером */}
       <div className={styles.container}>
         <div className={styles.catalog}>
           <aside className={styles.filters}>{/* Тут фільтри */}</aside>
 
           <div className={styles.list} ref={containerRef}>
+            {!isLoading && safeCampers.length === 0 && error && (
+              <p className={styles.error}>{error}</p>
+            )}
+
             {safeCampers.map(camper => (
               <article key={camper.id} className={styles.card}>
                 <div className={styles.imageWrapper}>
@@ -77,14 +87,20 @@ export default function CamperGrid() {
                         className={styles.favBtn}
                         onClick={() => toggleFavorite(camper.id)}
                       >
-                        {favorites.includes(camper.id) ? '❤️' : '🤍'}
+                        <Icon
+                          name={
+                            favorites.includes(camper.id)
+                              ? 'heart-pressed'
+                              : 'heart'
+                          }
+                        />
                       </button>
                     </div>
                   </div>
 
                   <div className={styles.meta}>
                     <div className={styles.metaItem}>
-                      <Icon name="star" />
+                      <Icon name="star" size={16} className={styles.star} />
                       <span className={styles.rating}>
                         {camper.rating} ({camper.reviews.length} Reviews)
                       </span>
@@ -137,12 +153,18 @@ export default function CamperGrid() {
               </article>
             ))}
 
-            {!isLoading && safeCampers.length < total && (
-              <button className={styles.loadMore} onClick={handleLoadMore}>
-                Load more
-              </button>
-            )}
+            {/* Кнопка Load More */}
+            {!isLoading &&
+              safeCampers.length < total &&
+              safeCampers.length > 0 && (
+                <button className={styles.loadMore} onClick={handleLoadMore}>
+                  Load more
+                </button>
+              )}
           </div>
+
+          {/* Loader */}
+          {isLoading && <p className={styles.loader}>Loading...</p>}
         </div>
       </div>
     </>

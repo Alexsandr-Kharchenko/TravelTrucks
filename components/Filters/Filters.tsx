@@ -39,6 +39,8 @@ export default function Filters() {
           <div className={styles.block}>
             <p className={styles.blockTitle}>Vehicle equipment</p>
 
+            <div className={styles.divider} />
+
             <div className={styles.grid}>
               {EQUIPMENT.map(item => (
                 <button
@@ -58,6 +60,8 @@ export default function Filters() {
           {/* VEHICLE TYPE */}
           <div className={styles.block}>
             <p className={styles.blockTitle}>Vehicle type</p>
+
+            <div className={styles.divider} />
 
             <div className={styles.grid}>
               <button

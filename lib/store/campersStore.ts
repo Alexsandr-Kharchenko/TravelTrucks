@@ -11,6 +11,7 @@ interface CamperState {
   isLoading: boolean;
   filters: Filters;
   favorites: string[];
+  error: string | null; // <--- нове поле
 
   setFilters: (filters: Partial<Filters>) => void;
   loadCampers: (loadMore?: boolean) => Promise<void>;
@@ -25,6 +26,7 @@ export const useCamperStore = create<CamperState>()(
       page: 1,
       isLoading: false,
       favorites: [],
+      error: null, // <--- нове поле
 
       filters: {
         location: '',
@@ -36,16 +38,36 @@ export const useCamperStore = create<CamperState>()(
       },
 
       setFilters: newFilters =>
-        set(state => ({
-          filters: { ...state.filters, ...newFilters },
-          campers: [],
-          page: 1,
-        })),
+        set(state => {
+          const updatedFilters = { ...state.filters, ...newFilters };
+
+          // Перевіряємо, чи всі фільтри очищені
+          const allEmpty =
+            !updatedFilters.location &&
+            !updatedFilters.form &&
+            !updatedFilters.AC &&
+            !updatedFilters.kitchen &&
+            !updatedFilters.TV &&
+            !updatedFilters.bathroom;
+
+          // Якщо всі порожні — автоматично завантажуємо всі кемпери
+          if (allEmpty) {
+            // Викликаємо loadCampers(false) після оновлення стану
+            setTimeout(() => get().loadCampers(false), 0);
+          }
+
+          return {
+            filters: updatedFilters,
+            campers: [],
+            page: 1,
+            error: null,
+          };
+        }),
 
       loadCampers: async (loadMore = false) => {
         if (get().isLoading) return;
 
-        set({ isLoading: true });
+        set({ isLoading: true, error: null });
 
         const { page, filters, campers } = get();
         const nextPage = loadMore ? page + 1 : 1;
@@ -53,7 +75,6 @@ export const useCamperStore = create<CamperState>()(
         try {
           const data = await getAllCampers(nextPage, 4, filters);
 
-          // Завжди гарантуємо масив
           const newCampers = Array.isArray(data.items) ? data.items : [];
           const total = data.total ?? 0;
 
@@ -64,10 +85,14 @@ export const useCamperStore = create<CamperState>()(
             total,
             page: nextPage,
             isLoading: false,
+            error:
+              newCampers.length === 0
+                ? 'No campers found with these filters'
+                : null, // <--- якщо порожньо
           });
         } catch (error) {
           console.error('Error loading campers:', error);
-          set({ isLoading: false });
+          set({ isLoading: false, error: 'Failed to load campers' });
         }
       },
 

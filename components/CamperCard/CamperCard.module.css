@@ -23,7 +23,6 @@
 /* ================= CATALOG ================= */
 .catalog {
   display: flex;
-  gap: 48px;
   flex-wrap: wrap; /* щоб на мобільних ряд переносився */
 }
 
@@ -93,12 +92,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
 }
 
 .priceFav {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
 }
 
 .favBtn {
@@ -202,7 +211,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 24px;
+  margin: 24px 0;
 }
 
 .feature {
@@ -218,8 +227,22 @@
 .feature svg {
   width: 20px;
   height: 20px;
+  display: block;
+  flex-shrink: 0;
 }
 
-.starIcon {
+.star {
   color: #ffc531;
+}
+
+.error {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-muted, #667085); /* сірий колір для повідомлення */
+  background: var(--white);
+  border-radius: 12px;
+  margin: 16px 48px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }

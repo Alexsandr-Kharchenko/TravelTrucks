@@ -1,20 +1,19 @@
 .header {
-  position: absolute;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f2f4f7; /* змінено фон */
-  z-index: 10;
+  z-index: 100;
+  background-color: #f2f4f7;
 }
 
 .container {
+  position: relative;
   width: 100%;
-  max-width: 1440px; /* максимум для великих екранів */
-  margin: 0 auto; /* центр по горизонталі */
-  padding: 28px 64px; /* базовий паддінг для мобілок */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* логотип ліворуч, навігація по центру через абсолют? */
+  justify-content: space-between;
 }
 /* Logo left */
 .logo {
