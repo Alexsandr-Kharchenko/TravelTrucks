@@ -1,13 +1,17 @@
 'use client';
 
-import { useCampersStore } from '@/lib/store/campersStore';
+import { useCamperStore } from '@/lib/store/campersStore';
 
 export default function LoadMoreButton() {
-  const { fetchCampers, loading } = useCampersStore();
+  const { loadCampers, isLoading } = useCamperStore();
 
   return (
-    <button disabled={loading} onClick={() => fetchCampers({}, false)}>
-      Load more
+    <button
+      disabled={isLoading}
+      onClick={() => loadCampers(true)}
+      className="load-more-btn"
+    >
+      {isLoading ? 'Loading...' : 'Load More'}
     </button>
   );
 }

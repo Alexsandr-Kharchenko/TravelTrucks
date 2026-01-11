@@ -1,11 +1,18 @@
 import { create } from 'zustand';
 
-export const useFiltersStore = create<any>(set => ({
+interface FiltersState {
+  filters: {
+    location: string;
+  };
+  setLocation: (location: string) => void;
+}
+
+export const useFiltersStore = create<FiltersState>(set => ({
   filters: {
     location: '',
   },
   setLocation: (location: string) =>
-    set((state: any) => ({
+    set(state => ({
       filters: { ...state.filters, location },
     })),
 }));
