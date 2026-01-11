@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   description: 'Camper rental service',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/public/TravelTrucks.svg',
   },
 };
 

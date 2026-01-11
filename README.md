@@ -1,97 +1,88 @@
-TravelTrucks – Camper Rental Service TravelTrucks is a modern web application
-designed for camper rentals. This platform allows travelers to explore a wide
-range of campers, filter them by specific amenities, view detailed
-specifications and user reviews, and book their next adventure online.
+# TravelTrucks
 
-Main Features Home Page: Features a hero banner with a clear Call-to-Action
-(CTA) "View Now" leading to the catalog.
+[Live Demo](https://travel-trucks-ypbk.vercel.app) |
+[Source Code](https://github.com/Alexsandr-Kharchenko/TravelTrucks)
 
-Camper Catalog: A comprehensive list of available vehicles with "Load More"
-pagination.
+## Project Overview
 
-Advanced Backend Filtering:
+TravelTrucks is a frontend web application for a camper rental company. Users
+can browse available campers, filter by location, type, and features, add
+favorites, view detailed camper information, read reviews, and book a camper.
 
-Search by Location.
+The app is built with **Next.js + TypeScript**, uses **Zustand** for state
+management, **Axios** for API requests, and **CSS Modules** for styling.
 
-Filter by Vehicle Type (Panel truck, Fully Integrated, Alcove).
+## Backend API
 
-Filter by Amenities (AC, Kitchen, TV, Bathroom, etc.).
+API Base URL:
+[https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers](https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers)
 
-Favorites System: Users can save campers to a favorites list. The state is
-persisted using LocalStorage, so your choices remain after a page refresh.
+Endpoints:
 
-Detailed Camper Page:
+- `GET /campers` – fetch all campers (backend filtering required)
+- `GET /campers/:id` – fetch camper details by ID
 
-Dynamic image gallery.
+## Main Features
 
-Tabbed interface: Features (specs) and Reviews (with a 5-star rating system).
+### Home Page (`/`)
 
-Detailed specs: Transmission, Engine, Tank, Consumption, and more.
+- Banner with call-to-action button **"View Now"**
+- Redirects to the Catalog page
 
-Booking Form: Integrated booking system with form validation and success
-notifications (Toasts).
+### Catalog Page (`/catalog`)
 
-🛠 Tech Stack Framework: Next.js 14+ (App Router)
+- Displays all available campers
+- Filtering options:
+  - Location (text input)
+  - Camper type
+  - Features: AC, kitchen, TV, radio, etc.
+- Add campers to favorites
+- Pagination with **Load More** button
+- Navigate to camper details via **Show More**
 
-Language: TypeScript
+### Camper Details Page (`/catalog/:id`)
 
-State Management: Zustand (with persist middleware)
+- Detailed information:
+  - **Features:** AC, kitchen, TV, radio, refrigerator, microwave, gas, water,
+    transmission, engine
+  - **Details:** Form, length, width, height, tank, consumption
+- Photo gallery
+- Tabs: Features (default) and Reviews
+- Reviews with 5-star ratings
+- Booking form with success notification
 
-Data Fetching: Axios
+## Technologies Used
 
-Styling: CSS Modules
+- Next.js – React framework for SSR/SSG
+- TypeScript – static typing
+- Zustand – global state management
+- Axios – HTTP requests
+- CSS Modules – component-level styling
+- React Icons / SVG Sprite – icons
 
-UI Components: React Icons / SVG Sprites
+## Project Structure
 
-Backend API: MockAPI
+## Installation & Running Locally
 
-Project Structure Plaintext
+Clone the repository:
 
-/app # Next.js App Router (pages & layouts) /components # Reusable UI components
-(Card, Filters, BookingForm, Loader) /store # Zustand store for global state
-management /services # Axios instance and API request functions /types #
-TypeScript interfaces and shared types /styles # Global styles and CSS variables
-/assets # Static assets (icons, images) ⚙️ Installation & Setup Clone the
-repository:
-
-Bash
-
-git clone https://github.com/your-username/travel-trucks.git cd travel-trucks
-Install dependencies:
-
-Bash
+```bash
+git clone https://github.com/Alexsandr-Kharchenko/TravelTrucks.git
+cd TravelTrucks
+```
 
 npm install
 
 # or
 
-yarn install Run the development server:
-
-Bash
+yarn install
 
 npm run dev
 
 # or
 
-yarn dev View the app: Open http://localhost:3000 in your browser.
+yarn dev
 
-Implementation Details Backend Sync: Filtering is performed strictly on the
-server side via query parameters to ensure performance.
+# or
 
-Clean UI: Prices are formatted to display with decimals (e.g., 8000.00) as per
-the requirements.
-
-State Reset: When new filters are applied, the previous search results are
-cleared to ensure data accuracy.
-
-Performance: Implemented next/font for optimized typography and responsive
-layouts for desktop users.
-
-UX: Loading states (loaders) are provided for all asynchronous operations.
-
-Author [Your Name] This project was developed as a technical assessment for the
-TravelTrucks frontend position.
-
-Links Live Demo: https://your-project-link.vercel.app
-
-GitHub Repository: https://github.com/your-username/travel-trucks
+pnpm dev
