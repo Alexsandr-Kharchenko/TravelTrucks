@@ -1,0 +1,111 @@
+/* Features block */
+.wrapper {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 44px 52px;
+  width: 631px;
+  height: 588px;
+  box-sizing: border-box;
+  box-shadow:
+    0px 4px 6px -2px rgba(16, 24, 40, 0.03),
+    0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+}
+
+/* список pills */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-bottom: 100px;
+}
+
+/* pill */
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  padding: 12px 18px; /* внутрішні відступи */
+  border-radius: 200px;
+
+  background-color: #f2f4f7;
+
+  border-radius: 100px;
+  mix-blend-mode: multiply;
+}
+
+/* icon (svg) */
+.icon {
+  width: 20px;
+  height: 20px;
+  color: #475467;
+  display: flex;
+  align-items: center;
+}
+
+/* text */
+.label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  font-family: var(--font-family);
+  line-height: 150%;
+  color: #475467;
+  white-space: nowrap;
+}
+
+/* divider line under features */
+.divider {
+  margin-top: 24px;
+  width: 100%;
+  height: 1px;
+  background-color: #e4e7ec;
+}
+
+.details {
+  margin-top: 24px;
+}
+
+.detailsTitle {
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101828;
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detailsList li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  padding: 8px 0; /* можна трохи зменшити */
+}
+
+.detailsList li:last-child {
+  border-bottom: none;
+}
+
+.detailsList span:first-child {
+  font-size: 16px;
+  color: #475467;
+}
+
+.detailsList span:last-child {
+  font-size: 16px;
+  font-weight: 500;
+  color: #101828;
+}

@@ -1,0 +1,53 @@
+/* ================= BASE ================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.item {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Hover тільки на desktop */
+@media (hover: hover) {
+  .item:hover img {
+    transform: scale(1.03);
+  }
+}
+
+/* ================= TABLET / MOBILE ================= */
+@media (max-width: 678px) {
+  .gallery {
+    grid-template-columns: repeat(4, 280px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 8px;
+  }
+
+  .item {
+    scroll-snap-align: start;
+  }
+
+  .item img {
+    height: 200px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 375px) {
+  .item img {
+    height: 180px;
+  }
+}

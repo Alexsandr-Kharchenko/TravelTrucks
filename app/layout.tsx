@@ -1,59 +1,30 @@
-import './globals.css';
-import './Home.module.css';
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
-import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
-import AuthProvider from '@/components/AuthProvider/AuthProvider';
-
-const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-roboto',
-  display: 'swap',
-});
+import './globals.css';
+import { Header } from '@/components/Header/Header';
+import { SvgSprite } from '@/components/SvgSprite/SvgSprite';
 
 export const metadata: Metadata = {
-  title: 'NoteHub',
-  description:
-    'Keep your thoughts safe and organized with Note Hub — a convenient, fast, and reliable personal notebook without unnecessary clutter.',
-  openGraph: {
-    title: 'NoteHub',
-    description:
-      'Manage your notes efficiently. Note Hub — your simple and focused notebook designed to capture ideas effortlessly. It’s fast, dependable, and distraction-free — the perfect place to think and create with clarity.',
-    url: 'https://08-zustand-steel-mu.vercel.app/',
-    images: [
-      {
-        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'NoteHub preview image',
-      },
-    ],
+  title: {
+    default: 'TravelTrucks',
+    template: '%s | TravelTrucks',
+  },
+  description: 'Camper rental service',
+  icons: {
+    icon: '/favicon.ico',
   },
 };
 
 export default function RootLayout({
   children,
-  modal,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-  modal: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} ${roboto.variable}`}>
-        <TanStackProvider>
-          <AuthProvider>
-            <Header />
-            <main>
-              {children}
-              {modal}
-            </main>
-            <Footer />
-          </AuthProvider>
-        </TanStackProvider>
+      <body>
+        <SvgSprite />
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );

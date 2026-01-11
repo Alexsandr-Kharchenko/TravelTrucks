@@ -1,0 +1,110 @@
+.banner {
+  position: relative;
+  height: 696px;
+  overflow: hidden;
+}
+
+/* Фон */
+.bannerBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Затемнення */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Контейнер */
+.container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+
+  padding-left: 64px;
+  padding-right: 64px;
+
+  display: flex;
+  align-items: center;
+}
+
+/* Контент */
+.content {
+  max-width: 571px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Заголовок */
+.title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 67%;
+  color: #f7f7f7;
+  margin: 0;
+}
+
+/* Підзаголовок */
+.subtitle {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: #f7f7f7;
+  margin-top: 16px;
+}
+
+/* Кнопка — NORMAL */
+.button {
+  margin-top: 32px;
+
+  min-width: 166px;
+  height: 56px;
+
+  padding: 16px 60px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+  background-color: #e44848;
+  border-radius: 200px;
+  border: 1px solid transparent;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* HOVER + FOCUS — прозорий фон, чорний текст */
+.button:hover,
+.button:focus {
+  background-color: transparent; /* прозорий фон */
+
+  border: 1px solid #e44848; /* залишаємо обводку червоного кольору */
+  outline: none;
+}

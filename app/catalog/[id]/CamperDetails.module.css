@@ -1,0 +1,181 @@
+/* ================= BASE ================= */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 64px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0;
+  color: #475467;
+}
+
+.rating,
+.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #101828;
+}
+
+/* ================= GALLERY ================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .gallery img:hover {
+    transform: scale(1.03);
+  }
+}
+
+/* ================= DESCRIPTION ================= */
+.description {
+  color: #475467;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* ================= TABS ================= */
+.tabs {
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.tabs button {
+  padding: 12px 0;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #475467;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tabs button:hover {
+  color: #e44848;
+}
+
+.active {
+  color: #101828;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #e44848;
+}
+
+/* ================= CONTENT ================= */
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+/* ================= VEHICLE DETAILS ================= */
+.details {
+  margin-top: 32px;
+}
+
+.details h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.details ul {
+  margin-top: 24px;
+}
+
+.details li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e4e7ec;
+  color: #475467;
+}
+
+.details li span:last-child {
+  color: #101828;
+  font-weight: 500;
+}
+
+/* ================= MEDIA ================= */
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 28px 64px;
+  }
+}
+
+@media (max-width: 678px) {
+  .container {
+    max-width: 678px;
+    padding: 28px 32px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 280px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .gallery li {
+    scroll-snap-align: start;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    max-width: 375px;
+    padding: 28px 16px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+}

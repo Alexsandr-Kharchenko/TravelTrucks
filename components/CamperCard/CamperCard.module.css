@@ -1,0 +1,225 @@
+.container {
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
+@media (max-width: 678px) {
+  .container {
+    max-width: 678px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    max-width: 375px;
+  }
+}
+
+/* ================= CATALOG ================= */
+.catalog {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap; /* щоб на мобільних ряд переносився */
+}
+
+/* ================= FILTERS ================= */
+.filters {
+  width: 360px;
+  flex-shrink: 0; /* щоб фільтри не стискались */
+}
+
+@media (max-width: 768px) {
+  .filters {
+    width: 100%; /* на мобільних фільтри під списком */
+  }
+}
+
+/* ================= LIST ================= */
+.list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ================= CARD ================= */
+.card {
+  display: flex;
+  gap: 24px;
+
+  border: 1px solid var(--gray-light);
+  border-radius: 20px;
+  padding: 24px;
+  width: 888px;
+  background: var(--white); /* білий фон */
+
+  transition: box-shadow 0.3s ease; /* плавний ефект при наведенні */
+}
+
+/* Ефект при наведенні */
+.card:hover {
+  box-shadow:
+    0 4px 4px 0 rgba(0, 0, 0, 0.25),
+    0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: var(--white); /* залишаємо білий фон */
+}
+
+/* ================= IMAGE ================= */
+.imageWrapper {
+  position: relative;
+  width: 290px;
+  height: 310px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ================= CONTENT ================= */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceFav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.favBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.location {
+  color: #475467;
+  margin: 8px 0;
+}
+
+.description {
+  flex: 1;
+  color: #475467;
+}
+
+.more {
+  border-radius: 200px;
+  padding: 16px 40px;
+  width: 166px;
+  height: 56px;
+  background: #e44848;
+  color: white;
+  text-decoration: none;
+}
+.more:hover,
+.more:focus {
+  background-color: transparent;
+  color: #101828;
+  border: 1px solid #e44848;
+  outline: none;
+}
+
+.loadMore {
+  border-radius: 200px;
+  padding: 16px 32px;
+  width: 145px;
+  height: 56px;
+
+  background: #e44848;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  transition: all 0.3s ease;
+
+  margin: 0 auto; /* центрує кнопку горизонтально */
+}
+
+.loadMore:hover,
+.loadMore:focus {
+  background-color: transparent;
+  color: #101828;
+  border: 1px solid #e44848;
+  outline: none;
+}
+
+/* ================= META ================= */
+.meta {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0 12px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #475467;
+  font-size: 14px;
+}
+
+.metaItem svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ================= FEATURES ================= */
+.rating {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.location {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 200px;
+  background: #f2f4f7;
+  font-size: 14px;
+}
+
+.feature svg {
+  width: 20px;
+  height: 20px;
+}
+
+.starIcon {
+  color: #ffc531;
+}

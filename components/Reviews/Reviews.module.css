@@ -1,0 +1,71 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review:last-child {
+  border-bottom: none;
+}
+
+/* ===== Верхній рядок ===== */
+.header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+
+  background: #f2f4f7;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: #e44848;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* відстань між ім'ям і зірками */
+}
+
+.review h4 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #101828;
+  margin: 0; /* прибираємо відступи, щоб gap працював точно */
+}
+
+/* ===== Зірочки ===== */
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  color: #ffc531;
+}
+
+/* ===== Коментар ===== */
+.comment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #475467;
+}

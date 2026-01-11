@@ -1,0 +1,42 @@
+.tabs {
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid #dadde1;
+  margin-bottom: 32px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  padding-bottom: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.active {
+  border-bottom: 3px solid #e44848;
+  font-weight: 600;
+}
+
+.featuresList,
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 24px;
+  margin-bottom: 24px;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stars {
+  color: #ffc531;
+}
